@@ -7,7 +7,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y \
         wget \
         perl gcc g++ make automake libtool autoconf m4 \
-        gcc-multilib
+        gcc-multilib net-tools
 
 RUN adduser --gecos 'PocketMine-MP' --disabled-password --home /pocketmine pocketmine
 
