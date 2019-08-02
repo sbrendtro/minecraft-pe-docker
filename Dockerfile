@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER 5t111111 https://github.com/5t111111
 
@@ -23,8 +23,6 @@ RUN chmod 755 /pocketmine/entrypoint.sh
 USER pocketmine
 
 ENV GNUPGHOME /pocketmine
-
-RUN gpg --keyserver pgp.mit.edu --recv-key 2280B75B
 
 ENV PHP_BINARY /pocketmine/PocketMine-MP/bin/php5/bin/php
 
