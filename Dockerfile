@@ -24,9 +24,10 @@ USER pocketmine
 
 ENV GNUPGHOME /pocketmine
 
-ENV PHP_BINARY /pocketmine/PocketMine-MP/bin/php5/bin/php
+ENV PHP_BINARY /pocketmine/PocketMine-MP/bin/php7/bin/php
 
-RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
+#RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
+RUN cd PocketMine-MP && wget -q -O - https://get.pmmp.io | bash -s -
 
 EXPOSE 19132
 EXPOSE 19132/udp
