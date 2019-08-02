@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER 5t111111 https://github.com/5t111111
+MAINTAINER sbrendtro https://github.com/sbrendtro
 
 RUN apt-get update -y
 RUN apt-get upgrade -y
@@ -13,21 +13,18 @@ RUN adduser --gecos 'PocketMine-MP' --disabled-password --home /pocketmine pocke
 
 WORKDIR /pocketmine
 RUN mkdir /pocketmine/PocketMine-MP
-RUN chown -R pocketmine:pocketmine /pocketmine
 
 COPY assets/server.properties /pocketmine/server.properties.original
 COPY assets/entrypoint.sh /pocketmine/entrypoint.sh
 
 RUN chmod 755 /pocketmine/entrypoint.sh
 
-USER pocketmine
-
 ENV GNUPGHOME /pocketmine
 
 ENV PHP_BINARY /pocketmine/PocketMine-MP/bin/php7/bin/php
 
-#RUN cd PocketMine-MP && wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v beta
-RUN cd PocketMine-MP && wget -q -O - https://get.pmmp.io | bash -s -
+RUN cd PocketMine-MP && wget -q -O install.sh https://get.pmmp.io \
+   && chmod 755 install.sh && ./install.sh -r && rm install.sh
 
 EXPOSE 19132
 EXPOSE 19132/udp
